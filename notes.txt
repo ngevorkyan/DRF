@@ -1,0 +1,4 @@
+* Code snippets are always associated with a creator
+* Only authorized users can create snippets
+* Only creator must be able to udate or delete
+* Unauthorized users must be able to read only
