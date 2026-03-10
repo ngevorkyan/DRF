@@ -13,3 +13,4 @@ Pygments==2.19.2
 python-dotenv==1.2.2
 sqlparse==0.5.5
 uvicorn==0.41.0
+whitenoise==6.12.0
