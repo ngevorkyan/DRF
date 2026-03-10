@@ -55,3 +55,16 @@ class UserList(generics.ListAPIView):
 class UserDetail(generics.RetrieveAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+
+from django.contrib.auth.models import User
+from django.shortcuts import render, redirect
+
+
+from rest_framework import generics
+from rest_framework.permissions import AllowAny
+from .serializers import RegisterSerializer
+
+class RegisterView(generics.CreateAPIView):
+    queryset = User.objects.all()
+    permission_classes = [AllowAny]  # anyone can register
+    serializer_class = RegisterSerializer
