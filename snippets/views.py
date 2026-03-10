@@ -8,6 +8,10 @@ from rest_framework.reverse import reverse
 from .models import Snippet
 from .serializers import SnippetSerializer, UserSeiralizer
 from .permissions import IsOwnerOrReadOnly
+from django.shortcuts import render
+
+def home(request):
+    return render(request, "index.html")
 
 class SnippetHighlight(generics.GenericAPIView):
     queryset = Snippet.objects.all()
