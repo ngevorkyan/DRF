@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>DRF Snippets</title>
+    <title>Snippets</title>
 </head>
-
 <body>
 
-<h1>Snippets</h1>
+<h1>My Snippets</h1>
 <ul id="snippets"></ul>
 
 <script>
-fetch("https://drf-9v1q.onrender.com/snippets/")
+fetch("/snippets/")
 .then(res => res.json())
 .then(data => {
     const list = document.getElementById("snippets")
 
     data.forEach(snippet => {
         const li = document.createElement("li")
-        li.innerText = snippet.title + " - " + snippet.code
+        li.innerText = snippet.title
         list.appendChild(li)
     })
 })
