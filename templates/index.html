@@ -1,26 +1,7 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Snippets</title>
-</head>
+<head><title>Snippets Frontend</title></head>
 <body>
-
-<h1>My Snippets</h1>
-<ul id="snippets"></ul>
-
-<script>
-fetch("/snippets/")
-.then(res => res.json())
-.then(data => {
-    const list = document.getElementById("snippets")
-
-    data.forEach(snippet => {
-        const li = document.createElement("li")
-        li.innerText = snippet.title
-        list.appendChild(li)
-    })
-})
-</script>
-
+<h1>Frontend is working! 🎉</h1>
 </body>
 </html>
