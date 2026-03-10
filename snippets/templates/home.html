@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DRF Project Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="bg-white p-8 rounded shadow-md w-96">
+        <h1 class="text-2xl font-bold mb-4 text-center">Register</h1>
+        <form id="registerForm" class="space-y-4">
+            <input type="text" name="username" placeholder="Username" class="w-full border p-2 rounded" required>
+            <input type="email" name="email" placeholder="Email" class="w-full border p-2 rounded" required>
+            <input type="password" name="password" placeholder="Password" class="w-full border p-2 rounded" required>
+            <input type="password" name="password2" placeholder="Confirm Password" class="w-full border p-2 rounded" required>
+            <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Register</button>
+        </form>
+        <p id="message" class="text-red-500 mt-2 text-center"></p>
+    </div>
+
+    <script>
+        const form = document.getElementById('registerForm');
+        const message = document.getElementById('message');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const data = Object.fromEntries(new FormData(form).entries());
+
+            const response = await fetch('/register/', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(data)
+            });
+
+            const result = await response.json();
+            if (response.ok) {
+                message.style.color = 'green';
+                message.textContent = 'Registration successful! You can now login.';
+                form.reset();
+            } else {
+                message.style.color = 'red';
+                message.textContent = JSON.stringify(result);
+            }
+        });
+    </script>
+</body>
+</html>
