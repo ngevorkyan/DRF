@@ -10,9 +10,8 @@ urlpatterns = [
     path("users/", views.UserList.as_view(), name="user-list"),
     path("users/<int:pk>/", views.UserDetail.as_view(), name="user-detail"),
 
-    path("api/", views.api_root),   # API root
+    path("api/", views.api_root),   # move API root here
     path("", views.home),           # frontend homepage
 ]
-
 urlpatterns = format_suffix_patterns(urlpatterns)
 
