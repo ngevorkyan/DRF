@@ -14,8 +14,6 @@ urlpatterns = [
     path("users/", views.UserList.as_view(), name="user-list"),
     path("users/<int:pk>/", views.UserDetail.as_view(), name="user-detail"),
     path("", views.api_root),
-    path('register/', views.RegisterView.as_view(), name='register'),
-    
 ]
 
 
